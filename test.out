@@ -1,0 +1,37 @@
+2024-12-04 18:20:44.656895: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-12-04 18:20:44.662612: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1733336444.669396    3396 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1733336444.671432    3396 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-04 18:20:44.678420: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1733336445.695184    3396 gpu_device.cc:2022] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22168 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 4090, pci bus id: 0000:01:00.0, compute capability: 8.9
+2024-12-04 18:20:45.700878: I tensorflow/core/common_runtime/placer.cc:162] input: (_Arg): /job:localhost/replica:0/task:0/device:GPU:0
+2024-12-04 18:20:45.700893: I tensorflow/core/common_runtime/placer.cc:162] _EagerConst: (_EagerConst): /job:localhost/replica:0/task:0/device:GPU:0
+2024-12-04 18:20:45.700895: I tensorflow/core/common_runtime/placer.cc:162] output_RetVal: (_Retval): /job:localhost/replica:0/task:0/device:GPU:0
+2024-12-04 18:20:45.822391: I tensorflow/core/common_runtime/eager/execute.cc:1746] Executing op _EagerConst in device /job:localhost/replica:0/task:0/device:GPU:0
+2024-12-04 18:20:45.823702: I tensorflow/core/common_runtime/eager/execute.cc:1746] Executing op _EagerConst in device /job:localhost/replica:0/task:0/device:GPU:0
+2024-12-04 18:20:45.824167: I tensorflow/core/common_runtime/placer.cc:162] a: (_Arg): /job:localhost/replica:0/task:0/device:GPU:0
+2024-12-04 18:20:45.824173: I tensorflow/core/common_runtime/placer.cc:162] b: (_Arg): /job:localhost/replica:0/task:0/device:GPU:0
+2024-12-04 18:20:45.824176: I tensorflow/core/common_runtime/placer.cc:162] MatMul: (MatMul): /job:localhost/replica:0/task:0/device:GPU:0
+2024-12-04 18:20:45.824178: I tensorflow/core/common_runtime/placer.cc:162] product_RetVal: (_Retval): /job:localhost/replica:0/task:0/device:GPU:0
+2024-12-04 18:20:45.824381: I tensorflow/core/common_runtime/eager/execute.cc:1746] Executing op MatMul in device /job:localhost/replica:0/task:0/device:GPU:0
+2024-12-04 18:20:45.824425: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: INVALID_ARGUMENT: Matrix size-incompatible: In[0]: [2,3], In[1]: [2,3]
+Num GPUs Available:  1
+input: (_Arg): /job:localhost/replica:0/task:0/device:GPU:0
+_EagerConst: (_EagerConst): /job:localhost/replica:0/task:0/device:GPU:0
+output_RetVal: (_Retval): /job:localhost/replica:0/task:0/device:GPU:0
+a: (_Arg): /job:localhost/replica:0/task:0/device:GPU:0
+b: (_Arg): /job:localhost/replica:0/task:0/device:GPU:0
+MatMul: (MatMul): /job:localhost/replica:0/task:0/device:GPU:0
+product_RetVal: (_Retval): /job:localhost/replica:0/task:0/device:GPU:0
+Traceback (most recent call last):
+  File "/home/tdole/yolopeople/test.py", line 9, in <module>
+    c = tf.matmul(a, b)
+  File "/home/tdole/deeplearning/week3/.venv/lib/python3.10/site-packages/tensorflow/python/ops/weak_tensor_ops.py", line 142, in wrapper
+    return op(*args, **kwargs)
+  File "/home/tdole/deeplearning/week3/.venv/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/tdole/deeplearning/week3/.venv/lib/python3.10/site-packages/tensorflow/python/framework/ops.py", line 6002, in raise_from_not_ok_status
+    raise core._status_to_exception(e) from None  # pylint: disable=protected-access
+tensorflow.python.framework.errors_impl.InvalidArgumentError: {{function_node __wrapped__MatMul_device_/job:localhost/replica:0/task:0/device:GPU:0}} Matrix size-incompatible: In[0]: [2,3], In[1]: [2,3] [Op:MatMul] name: 
